@@ -28,15 +28,15 @@ public class ChessBoard{
         frame.add(new InnerProgram(frame.getSize()));
         frame.pack();
         frame.setVisible(true);
-        
+
     }//constructor
 
     public static class InnerProgram extends JPanel implements Runnable, MouseListener  {
 
-        Piece[][] board = new Piece[8][8];
+        BoardLoc[][] board = new BoardLoc[8][8];
         private Thread animator;
         Dimension d;
-        
+
         String str = "";
         int xPos = 0;
         int yPos = 0;
@@ -63,17 +63,17 @@ public class ChessBoard{
             g2.setColor(Color.black);
             g2.fillRect(0, 0,(int)d.getWidth() , (int)d.getHeight());
 
-            
-            
-            
-            
+
+
+
+
             Color co = new Color(255,255,255);
             g2.setColor(co);
             int fontSize = 10;
             g2.setFont(new Font("TimesRoman", Font.PLAIN, fontSize));
             g2.drawString("String " + str,20,40);
-           
-                
+
+
             for(int r = 0;r<board.length;r++){
                 for(int c = 0;c<board[0].length;c++){
                     if((r+c)%2==0){
@@ -82,23 +82,23 @@ public class ChessBoard{
                     }//if
                 }//end nested
             }//end for
-            
-                    
-                
-                    
-                    
-            
+
+
+
+
+
+
         }
 
-  
+
 
         public void mousePressed(MouseEvent e) {
-            
+
        xPos = e.getX();
             yPos = e.getY();
             str = xPos + " " + yPos;
         }
-        
+
         public void mouseReleased(MouseEvent e) {
         }
 
@@ -109,7 +109,7 @@ public class ChessBoard{
         }
 
         public void mouseClicked(MouseEvent e) {
-            
+
         }
 
         private class TAdapter extends KeyAdapter {
@@ -125,9 +125,9 @@ public class ChessBoard{
                 str += " char " + c + " key " + key;
               // c = Character.toString((char) key);
 
-               
 
-               
+
+
             }
         }//end of adapter
 
@@ -148,8 +148,8 @@ public class ChessBoard{
             } // end while loop
         }// end of run
 
-        
-       
+
+
 
     }//end of class (inner program)
 
