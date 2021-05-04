@@ -1,4 +1,4 @@
-public class Pawn extends piece{
+public class Pawn extends Piece{
 
     protected int timesMoved;
 
