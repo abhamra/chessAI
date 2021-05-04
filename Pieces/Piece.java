@@ -12,6 +12,12 @@ public class Piece {
 		pos.r = r;
 		pos.c = c;
 		pos.piece = this;
+
+		moves = new ArrayList<BoardLoc>();
+	}
+
+	public void generateValidMoves() { // OVERRIDE this method
+		
 	}
 
 	public boolean move(BoardLoc location) {
