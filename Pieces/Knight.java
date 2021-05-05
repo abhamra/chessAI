@@ -13,7 +13,7 @@ public class Knight extends Piece {
             for(int j = -2;j<3;j++){
                 if((Math.abs(i)+Math.abs(j))==3){
                     if(board[pos.r+i][pos.c+j]==null){
-                        moves.add(board[\pos.r+i][pos.c+j]);
+                        moves.add(board[pos.r+i][pos.c+j]);
                     }
                 }
             }//end nested for
