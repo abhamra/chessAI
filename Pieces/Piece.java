@@ -27,12 +27,13 @@ public class Piece {
 		pos.piece = null;
 		pos = location;
 
-		if(location.piece == null) {
+		if(location.piece == null && moves.contains(location)) {
 			location.piece = this;
 			return true;
 		}
 		else if((location.piece.white && !this.white)
-			 	 || (!location.piece.white && this.white)) { // this piece takes enemy piece
+			 	 || (!location.piece.white && this.white)
+				 && moves.contains(location)) { // this piece takes enemy piece
 			location.piece = this;
 			return true;
 		}
