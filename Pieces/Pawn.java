@@ -1,6 +1,7 @@
 public class Pawn extends Piece{
 
     protected int timesMoved;
+    protected int pts = 1;
 
     public Pawn(int r, int c, boolean white) {
         super(r, c, white);
@@ -30,8 +31,10 @@ public class Pawn extends Piece{
 
     }
 
-    public void move() {
-      
+    public void move(BoardLoc location) { // I need to override the generic "move" method for the pawn because it is a special case
+      if(moves.contains(location) && ) { // aaaa I didn't finish this -- incomplete code -- will revisit later
+        
+      }
     }
 
 }//end class
