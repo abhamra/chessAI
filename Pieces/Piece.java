@@ -31,6 +31,11 @@ public class Piece {
 			location.piece = this;
 			return true;
 		}
+		else if((location.piece.white && !this.white)
+			 	 || (!location.piece.white && this.white)) { // this piece takes enemy piece
+			location.piece = this;
+			return true;
+		}
 		else {
 			return false;
 		}
