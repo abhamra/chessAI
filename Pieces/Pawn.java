@@ -1,9 +1,10 @@
-public class Pawn extends Piece{
+public class Pawn extends Piece {
 
     protected int timesMoved;
     protected int pts = 1;
 
-    public Pawn(int r, int c, boolean white) {
+    public Pawn(int r, int c, boolean white)
+    {
         super(r, c, white);
         timesMoved = 0;
     }//end constructor
