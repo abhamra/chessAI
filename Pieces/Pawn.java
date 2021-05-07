@@ -27,7 +27,7 @@ public class Pawn extends Piece {
           moves.add(board[pos.r - 1][pos.c]);
         }
         else {
-          moves.add(board[pos.r + 1][c]);
+          moves.add(board[pos.r + 1][pos.c]);
         }
       }
 

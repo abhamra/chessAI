@@ -12,27 +12,24 @@ public class Knight extends Piece {
     public void generateValidMoves(BoardLoc[][] board) {
         moves = new ArrayList<BoardLoc>();
         int[] dr = {1, 1, -1, -1, 2, 2, -2, -2};
-        int[] dc = {2, -2, 2, -2, 1, -2, 1, -2};
-        for(int i = 0; i < 4; i++) {
+        int[] dc = {2, -2, 2, -2, 1, -1, 1, -1};
+        for(int i = 0; i < 8; i++) {
           int nr = pos.r;
           int nc = pos.c;
-          while(nr < board.length && nr >= 0
-             && nc < board[0].length && nc >= 0) {
             nr += dr[i];
             nc += dc[i];
             if(board[nr][nc].piece == null) {
-              moves.add(board[nr][nc]);
+                moves.add(board[nr][nc]);
             }
             else if((board[nr][nc].piece.white && this.white)
-                  || !board[nr][nc].piece.white && !this.white) {
-              break;
+                    || !board[nr][nc].piece.white && !this.white) {
+                break;
             }
             else if((board[nr][nc].piece.white && !this.white)
-                  || !board[nr][nc].piece.white && this.white) {
-              moves.add(board[nr][nc]);
-              break;
+                    || !board[nr][nc].piece.white && this.white) {
+                moves.add(board[nr][nc]);
+                break;
             }
-          }
         }
       }
 
