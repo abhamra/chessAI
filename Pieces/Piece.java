@@ -24,17 +24,21 @@ public class Piece {
 	}
 
 	public boolean move(BoardLoc location) {
-		pos.piece = null;
-		pos = location;
+		//pos.piece = null;
+		//pos = location;
 
 		if(location.piece == null && moves.contains(location)) {
 			location.piece = this;
+			pos.piece = null;
+			this.pos = location;
 			return true;
 		}
 		else if((location.piece.white && !this.white)
 			 	 || (!location.piece.white && this.white)
 				 && moves.contains(location)) { // this piece takes enemy piece
 			location.piece = this;
+			pos.piece = null;
+			this.pos = location;
 			return true;
 		}
 		else {
