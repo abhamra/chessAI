@@ -4,21 +4,33 @@ public class Knight extends Piece {
     protected BoardLoc pos;
 	protected int pts = 3;
 
-    public Knight(int r, int c){
-        super(r, c);
+    public Knight(int r, int c, boolean white){
+        super(r, c, white);
 
     }//end constructor
-    
-    public void generateValidMoves(Chessboard board){
-        for(int i = -2;i<3;i++){
-            for(int j = -2;j<3;j++){
-                if((Math.abs(i)+Math.abs(j))==3){
-                    if(board[pos.r+i][pos.c+j]==null){
-                        moves.add(board[pos.r+i][pos.c+j]);
-                    }
-                }
-            }//end nested for
+
+    public void generateValidMoves(BoardLoc[][] board) {
+        moves = new ArrayList<BoardLoc>();
+        int[] dr = {1, 1, -1, -1, 2, 2, -2, -2};
+        int[] dc = {2, -2, 2, -2, 1, -1, 1, -1};
+        for(int i = 0; i < 8; i++) {
+          int nr = pos.r;
+          int nc = pos.c;
+            nr += dr[i];
+            nc += dc[i];
+            if(board[nr][nc].piece == null) {
+                moves.add(board[nr][nc]);
+            }
+            else if((board[nr][nc].piece.white && this.white)
+                    || !board[nr][nc].piece.white && !this.white) {
+                break;
+            }
+            else if((board[nr][nc].piece.white && !this.white)
+                    || !board[nr][nc].piece.white && this.white) {
+                moves.add(board[nr][nc]);
+                break;
+            }
         }
-    }//end func
+      }
 
 }//end class
