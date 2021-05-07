@@ -1,3 +1,4 @@
+import java.util.*;
 public class Pawn extends Piece {
 
     protected int timesMoved;
@@ -13,20 +14,20 @@ public class Pawn extends Piece {
       moves = new ArrayList<BoardLoc>(); // YO, this is kinda not efficient, I will try to improve later...
       if(timesMoved == 0) { // first move
         if(white) {
-          moves.add(board[r - 2][c]);
-          moves.add(board[r - 1][c]);
+          moves.add(board[pos.r - 2][pos.c]);
+          moves.add(board[pos.r - 1][pos.c]);
         }
         else {
-          moves.add(board[r + 2][c]);
-          moves.add(board[r + 1][c]);
+          moves.add(board[pos.r + 2][pos.c]);
+          moves.add(board[pos.r + 1][pos.c]);
         }
       }
       else { // already moved once or more
         if(white) {
-          moves.add(board[r - 1][c]);
+          moves.add(board[pos.r - 1][pos.c]);
         }
         else {
-          moves.add(board[r + 1][c]);
+          moves.add(board[pos.r + 1][c]);
         }
       }
 
