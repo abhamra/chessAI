@@ -8,17 +8,31 @@ public class Bishop extends Piece {
 
     }//end constructor
     
-    public void generateValidMoves(Chessboard board){
-        for(int i = 0;i<pos.r;i++){//bottom left
-            if(board[pos.r-i][pos.c-i]==null){
-                moves.add(board[pos.r-i][pos.c-i]);
+    public void generateValidMoves(BoardLoc[][] board) {
+        super.moves = new ArrayList<BoardLoc>();
+        int[] dr = {1, -1, 1, -1};
+        int[] dc = {1, 1, -1, -1};
+        for(int i = 0; i < 4; i++) {
+          int nr = super.pos.r;
+          int nc = super.pos.c;
+          while(nr < board.length && nr >= 0
+             && nc < board[0].length && nc >= 0) {
+            nr += dr[i];
+            nc += dc[i];
+            if(board[nr][nc].piece == null) {
+              super.moves.add(board[nr][nc]);
             }
-        }//end for
-        for(int i = 0;pos.r-i>0 || pos.c-i>0;i++){//bottom left
-            if(board[pos.r-i][pos.c-i]==null){
-                moves.add(board[pos.r+i][pos.c-i]);//add to r to go down
+            else if((board[nr][nc].piece.white && this.white)
+                  || !board[nr][nc].piece.white && !this.white) {
+              break;
             }
-        }//end for
-    }//end func
+            else if((board[nr][nc].piece.white && !this.white)
+                  || !board[nr][nc].piece.white && this.white) {
+              super.moves.add(board[nr][nc]);
+              break;
+            }
+          }
+        }
+      }
 
 }//end class

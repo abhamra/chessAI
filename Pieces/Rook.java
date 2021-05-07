@@ -1,3 +1,4 @@
+import java.util.*;
 public class Rook extends Piece {
 
   protected int pts = 5;
