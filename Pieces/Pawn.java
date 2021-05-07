@@ -32,13 +32,13 @@ public class Pawn extends Piece {
 
     }
 
-    public void move(BoardLoc location) { // I need to override the generic "move" method for the pawn because it is a special case
+    public boolean move(BoardLoc location) { // I need to override the generic "move" method for the pawn because it is a special case
       if(moves.contains(location) && location.piece == null) {
         location.piece = this;
         super.pos.piece = null;
         super.pos = location;
         timesMoved++;
-        return;
+        return true;
       }
       else {
         if(white) {
@@ -47,7 +47,7 @@ public class Pawn extends Piece {
             super.pos.piece = null;
             super.pos = location;
             timesMoved++;
-            return;
+            return true;
           }
         }
         else {
@@ -56,7 +56,7 @@ public class Pawn extends Piece {
             super.pos.piece = null;
             super.pos = location;
             timesMoved++;
-            return;
+            return true;
           }
         }
       }
@@ -66,8 +66,10 @@ public class Pawn extends Piece {
         super.pos.piece = null;
         super.pos = location;
         timesMoved++;
-        return;
+        return true;
       }
+
+      return false;
     }
 
 }//end class
