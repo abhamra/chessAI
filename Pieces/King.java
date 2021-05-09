@@ -6,11 +6,15 @@ public class King extends Piece {
   protected boolean inCheck;
   protected boolean gameOver;
 
+  protected int pts;
+
   public King(int r, int c, boolean white)
   {
     super(r, c, white);
     inCheck = false;
     gameOver = false;
+
+    pts = 0; // I'm just making a point value because I will use it to determine if a piece is the King
   }
 
   public void generateValidMoves(BoardLoc[][] board) {
@@ -39,5 +43,17 @@ public class King extends Piece {
     }
 
     // Note: I plan to handle stalemates in the Player class because stalemates depend on knowing the states of other pieces
+  }
+
+  public boolean isInCheck(Player opponent) {
+
+  }
+
+  public void castle(BoardLoc[][] board, Rook rook) {
+    if(rook.timesMoved == 0 && super.timesMoved == 0) {
+      if((rook.white && this.white) || (!rook.white && !this.white)) { // See, this is where I might use the sameColor method instead, but we'll see...
+        // will finish later
+      }
+    }
   }
 }

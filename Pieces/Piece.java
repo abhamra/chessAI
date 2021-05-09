@@ -8,15 +8,17 @@ public class Piece {
 
 	protected ArrayList<BoardLoc> moves;
 
+	protected int timesMoved;
+
 	public Piece(int r, int c, boolean white)
 	{
-		pos.r = r;
-		pos.c = c;
+		pos = new BoardLoc(r, c);
 		pos.piece = this;
 
 		this.white = white;
 
 		moves = new ArrayList<BoardLoc>();
+		timesMoved = 0;
 	}
 
 	public void generateValidMoves() { // OVERRIDE this method
@@ -31,6 +33,7 @@ public class Piece {
 			location.piece = this;
 			pos.piece = null;
 			this.pos = location;
+			timesMoved++;
 			return true;
 		}
 		else if((location.piece.white && !this.white)
@@ -39,10 +42,15 @@ public class Piece {
 			location.piece = this;
 			pos.piece = null;
 			this.pos = location;
+			timesMoved++;
 			return true;
 		}
 		else {
 			return false;
 		}
 	}
+
+	/*public boolean sameColor() { -- I may consider implementing this since it comes up in a lot of places
+
+	}*/
 }
