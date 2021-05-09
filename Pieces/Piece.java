@@ -21,6 +21,17 @@ public class Piece {
 		timesMoved = 0;
 	}
 
+	public Piece(int r, int c, boolean white, BoardLoc[][] board)
+	{
+		pos = board[r][c];
+		pos.piece = this;
+
+		this.white = white;
+
+		moves = new ArrayList<BoardLoc>();
+		timesMoved = 0;
+	}
+
 	public void generateValidMoves() { // OVERRIDE this method
 
 	}
