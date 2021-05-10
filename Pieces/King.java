@@ -50,9 +50,39 @@ public class King extends Piece {
   }
 
   public void castle(BoardLoc[][] board, Rook rook) {
-    if(rook.timesMoved == 0 && super.timesMoved == 0) {
+    if(rook.timesMoved == 0 && super.timesMoved == 0) { // if both have not been moved before
       if((rook.white && this.white) || (!rook.white && !this.white)) { // See, this is where I might use the sameColor method instead, but we'll see...
-        // will finish later
+      // Still need to check that the spots in between the King and Rook are open -- I will probably do it in outside if-statements (later)
+        if(this.white) {
+          if(rook.pos.c < super.pos.c) { // white queen's side castle
+            // move King
+            // move Rook
+          }
+          else { // white king's side castle
+            // move King
+            // move Rook
+          }
+        }
+        else {
+          if(rook.pos.c < super.pos.c) { // black king's side castle
+            // move King
+            super.pos.piece = null;
+            BoardLoc b = super.pos;
+            super.pos = board[b.r][b.c - 2];
+            super.pos.piece = this;
+
+            // move Rook
+          }
+          else { // black queen's side castle
+            // move King
+            super.pos.piece = null;
+            BoardLoc b = super.pos;
+            super.pos = board[b.r][b.c + 2];
+            super.pos.piece = this;
+
+            // move Rook
+          }
+        }
       }
     }
   }
