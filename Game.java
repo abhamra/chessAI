@@ -1,3 +1,6 @@
+
+
+import java.util.*;
 public class Game {
 
   protected BoardLoc[][] board;
@@ -9,8 +12,8 @@ public class Game {
   public Game()
   {
     board = new BoardLoc[8][8];
-    for(int r = 0; i < board.length; i++) {
-      for(int c = 0; j < board[i].length; j++) {
+    for(int r = 0; r < board.length; r++) {
+      for(int c = 0; c < board[c].length; c++) {
         board[r][c] = new BoardLoc(r, c);
       }
     }

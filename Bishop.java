@@ -1,11 +1,12 @@
+
 import java.util.*;
 public class Bishop extends Piece {
     
     protected BoardLoc pos;
 	protected int pts = 3;
 
-    public Bishop(int r, int c, boolean white){
-        super(r, c, white);
+    public Bishop(int r, int c, boolean white, BoardLoc[][] board){
+        super(r, c, white, board);
 
     }//end constructor
     

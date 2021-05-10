@@ -1,12 +1,13 @@
+
 import java.util.*;
 public class Pawn extends Piece {
 
     protected int timesMoved;
     protected int pts = 1;
 
-    public Pawn(int r, int c, boolean white)
+    public Pawn(int r, int c, boolean white, BoardLoc[][] board)
     {
-        super(r, c, white);
+        super(r, c, white, board);
         timesMoved = 0;
     }//end constructor
 

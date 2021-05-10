@@ -1,3 +1,4 @@
+
 import java.util.*;
 
 public class King extends Piece {
@@ -8,9 +9,9 @@ public class King extends Piece {
 
   protected int pts;
 
-  public King(int r, int c, boolean white)
+  public King(int r, int c, boolean white, BoardLoc[][] board)
   {
-    super(r, c, white);
+    super(r, c, white, board);
     inCheck = false;
     gameOver = false;
 
@@ -46,8 +47,8 @@ public class King extends Piece {
   }
 
   public boolean isInCheck(Player opponent) {
-
-  }
+    return false;
+  }//end
 
   public void castle(BoardLoc[][] board, Rook rook) {
     if(rook.timesMoved == 0 && super.timesMoved == 0) { // if both have not been moved before
