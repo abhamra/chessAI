@@ -1,3 +1,4 @@
+
 import java.util.*;
 
 public class Player {
@@ -53,7 +54,7 @@ public class Player {
     isStalemate = false;
   }
 
-  public void checkIsStalemate() {
+  public boolean checkIsStalemate() {
     for(Piece p : pieces) {
       if(p.moves.size() > 0) {
         isStalemate = false;
@@ -76,8 +77,8 @@ public class Player {
   }
 
   public void promotePawn(Pawn pawn, Piece promotion) {
-    if((white && pawn.white && pawn.r == 0)
-    || (!white && !pawn.white && pawn.r == 7)) {
+    if((white && pawn.white && pawn.pos.r == 0)
+    || (!white && !pawn.white && pawn.pos.r == 7)) {
       promotion.pos = pawn.pos;
       pawn.pos.piece = promotion;
       pawn = null;

@@ -1,12 +1,13 @@
+
 import java.util.*;
 
 public class Queen extends Piece {
 
   protected int pts = 9;
 
-  public Queen(int r, int c, boolean white)
+  public Queen(int r, int c, boolean white, BoardLoc[][] board)
   {
-    super(r, c, white);
+    super(r, c, white, board);
   }
 
   public void generateValidMoves(BoardLoc[][] board) {
@@ -35,5 +36,5 @@ public class Queen extends Piece {
       }
     }
   }
-  }
-}
+}//end of class
+

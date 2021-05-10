@@ -1,3 +1,5 @@
+package Pieces;
+import java.util.*;
 public class BoardLoc {
 
 	protected Piece piece;
@@ -14,6 +16,7 @@ public class BoardLoc {
 
 		whiteKingCanHere = true;
 		blackKingCanHere = true;
+
 	}
 
 	public BoardLoc(Piece piece, int r, int c)

@@ -1,12 +1,13 @@
+
 import java.util.*;
 public class Rook extends Piece {
 
   protected int pts = 5;
   //protected int timesMoved; -- don't need anymore; made a instance variable in the Piece class
 
-  public Rook(int r, int c, boolean white)
+  public Rook(int r, int c, boolean white, BoardLoc[][] board)
   {
-    super(r, c, white);
+    super(r, c, white, board);
     //timesMoved = 0;
   }
 
