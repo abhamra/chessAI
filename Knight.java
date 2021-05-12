@@ -4,9 +4,10 @@ public class Knight extends Piece {
     
     protected BoardLoc pos;
 	protected int pts = 3;
+    protected String pieceName = "N";
 
-    public Knight(int r, int c, boolean white, BoardLoc[][] board){
-        super(r, c, white, board);
+    public Knight(int r, int c, boolean white, BoardLoc[][] board, String pieceName){
+        super(r, c, white, board, pieceName);
 
     }//end constructor
 

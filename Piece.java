@@ -6,6 +6,7 @@ public class Piece {
 	protected BoardLoc pos;
 	protected int pts;
 	protected boolean white; // if true, white -- if false, black
+	protected String pieceName;
 
 	protected ArrayList<BoardLoc> moves;
 
@@ -22,7 +23,7 @@ public class Piece {
 		timesMoved = 0;
 	}
 
-	public Piece(int r, int c, boolean white, BoardLoc[][] board)
+	public Piece(int r, int c, boolean white, BoardLoc[][] board, String pieceName)
 	{
 		pos = board[r][c];
 		pos.piece = this;

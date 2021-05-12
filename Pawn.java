@@ -4,10 +4,11 @@ public class Pawn extends Piece {
 
     protected int timesMoved;
     protected int pts = 1;
+    protected String pieceName = null;
 
-    public Pawn(int r, int c, boolean white, BoardLoc[][] board)
+    public Pawn(int r, int c, boolean white, BoardLoc[][] board, String pieceName)
     {
-        super(r, c, white, board);
+        super(r, c, white, board, pieceName);
         timesMoved = 0;
     }//end constructor
 

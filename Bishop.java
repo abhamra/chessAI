@@ -4,9 +4,10 @@ public class Bishop extends Piece {
     
     protected BoardLoc pos;
 	protected int pts = 3;
+  protected String pieceName = "B";
 
-    public Bishop(int r, int c, boolean white, BoardLoc[][] board){
-        super(r, c, white, board);
+    public Bishop(int r, int c, boolean white, BoardLoc[][] board, String pieceName){
+        super(r, c, white, board, pieceName);
 
     }//end constructor
     

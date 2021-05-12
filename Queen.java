@@ -4,10 +4,11 @@ import java.util.*;
 public class Queen extends Piece {
 
   protected int pts = 9;
+  protected String pieceName = "Q";
 
-  public Queen(int r, int c, boolean white, BoardLoc[][] board)
+  public Queen(int r, int c, boolean white, BoardLoc[][] board, String pieceName)
   {
-    super(r, c, white, board);
+    super(r, c, white, board, pieceName);
   }
 
   public void generateValidMoves(BoardLoc[][] board) {

@@ -8,14 +8,15 @@ public class King extends Piece {
   protected boolean gameOver;
 
   protected int pts;
+  protected String pieceName = "K";
 
-  public King(int r, int c, boolean white, BoardLoc[][] board)
+  public King(int r, int c, boolean white, BoardLoc[][] board, String pieceName)
   {
-    super(r, c, white, board);
+    super(r, c, white, board, pieceName);
     inCheck = false;
     gameOver = false;
 
-    pts = 0; // I'm just making a point value because I will use it to determine if a piece is the King
+    pts = 100; // I'm just making a point value because I will use it to determine if a piece is the King
   }
 
   public void generateValidMoves(BoardLoc[][] board) {
