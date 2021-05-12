@@ -48,6 +48,16 @@ public class King extends Piece {
   }
 
   public boolean isInCheck(Player opponent) {
+    /*for(int i = 0; i < opponent.pieces.size(); i++) { // I've commented this part out because I will need to edit it when the Move class is done
+      Piece p = opponent.pieces(i);
+      for(int j = 0; j < p.moves; j++) {
+        if(super.pos = p.moves.get(j)) {
+          return true;
+        }
+      }
+    }
+    return false;
+    */
     return false;
   }//end
 
