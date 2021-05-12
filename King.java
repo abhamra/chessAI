@@ -39,7 +39,7 @@ public class King extends Piece {
       }
     }
 
-    if(moves.size() == 0 && inCheck) { // checks for checkmate (get dad-joked, Sandro would be proud)
+    if(moves.size() == 0 && inCheck) { // checks for CHECKMATE (get dad-joked, Sandro would be proud)
       gameOver = true;
     }
 
@@ -53,35 +53,72 @@ public class King extends Piece {
   public void castle(BoardLoc[][] board, Rook rook) {
     if(rook.timesMoved == 0 && super.timesMoved == 0) { // if both have not been moved before
       if((rook.white && this.white) || (!rook.white && !this.white)) { // See, this is where I might use the sameColor method instead, but we'll see...
-      // Still need to check that the spots in between the King and Rook are open -- I will probably do it in outside if-statements (later)
         if(this.white) {
           if(rook.pos.c < super.pos.c) { // white queen's side castle
-            // move King
-            // move Rook
+            BoardLoc b = super.pos;
+            // checks if the spaces are threatened by enemy pieces or occupied by pieces (whether friendly or enemy)
+            if(board[super.pos.r][super.pos.c - 2].whiteKingCanHere && board[super.pos.r][super.pos.c - 2].piece == null
+            && board[super.pos.r][super.pos.c - 1].whiteKingCanHere && board[super.pos.r][super.pos.c - 1].piece == null) {
+              // move King
+              super.pos.piece = null;
+              super.pos = board[b.r][b.c - 2];
+              super.pos.piece = this;
+
+              // move Rook
+              rook.pos.piece = null;
+              rook.pos = board[rook.pos.r][rook.pos.c + 3];
+              rook.pos.piece = rook;
+            }
           }
           else { // white king's side castle
-            // move King
-            // move Rook
+            BoardLoc b = super.pos;
+            // checks if the spaces are threatened by enemy pieces or occupied by pieces (whether friendly or enemy)
+            if(board[super.pos.r][super.pos.c + 2].whiteKingCanHere && board[super.pos.r][super.pos.c + 2].piece == null
+            && board[super.pos.r][super.pos.c + 1].whiteKingCanHere && board[super.pos.r][super.pos.c + 1].piece == null) {
+              // move King
+              super.pos.piece = null;
+              super.pos = board[b.r][b.c + 2];
+              super.pos.piece = this;
+
+              // move Rook
+              rook.pos.piece = null;
+              rook.pos = board[rook.pos.r][rook.pos.c - 2];
+              rook.pos.piece = rook;
+            }
           }
         }
         else {
           if(rook.pos.c < super.pos.c) { // black king's side castle
-            // move King
-            super.pos.piece = null;
             BoardLoc b = super.pos;
-            super.pos = board[b.r][b.c - 2];
-            super.pos.piece = this;
+            // checks if the spaces are threatened by enemy pieces or occupied by pieces (whether friendly or enemy)
+            if(board[super.pos.r][super.pos.c - 2].blackKingCanHere && board[super.pos.r][super.pos.c - 2].piece == null
+            && board[super.pos.r][super.pos.c - 1].blackKingCanHere && board[super.pos.r][super.pos.c - 1].piece == null) {
+              // move King
+              super.pos.piece = null;
+              super.pos = board[b.r][b.c - 2];
+              super.pos.piece = this;
 
-            // move Rook
+              // move Rook
+              rook.pos.piece = null;
+              rook.pos = board[rook.pos.r][rook.pos.c + 2];
+              rook.pos.piece = rook;
+            }
           }
           else { // black queen's side castle
-            // move King
-            super.pos.piece = null;
             BoardLoc b = super.pos;
-            super.pos = board[b.r][b.c + 2];
-            super.pos.piece = this;
+            // checks if the spaces are threatened by enemy pieces or occupied by pieces (whether friendly or enemy)
+            if(board[super.pos.r][super.pos.c + 2].blackKingCanHere && board[super.pos.r][super.pos.c + 2].piece == null
+            && board[super.pos.r][super.pos.c + 1].blackKingCanHere && board[super.pos.r][super.pos.c + 1].piece == null) {
+              // move King
+              super.pos.piece = null;
+              super.pos = board[b.r][b.c + 2];
+              super.pos.piece = this;
 
-            // move Rook
+              // move Rook
+              rook.pos.piece = null;
+              rook.pos = board[rook.pos.r][rook.pos.c - 3];
+              rook.pos.piece = rook;
+            }
           }
         }
       }
