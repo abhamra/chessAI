@@ -19,7 +19,7 @@ public class Piece {
 
 		this.white = white;
 
-		moves = new ArrayList<BoardLoc>();
+		moves = new ArrayList<Move>();
 		timesMoved = 0;
 	}
 
@@ -30,7 +30,7 @@ public class Piece {
 
 		this.white = white;
 
-		moves = new ArrayList<BoardLoc>();
+		moves = new ArrayList<Move>();
 		timesMoved = 0;
 	}
 

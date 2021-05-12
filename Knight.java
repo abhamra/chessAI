@@ -21,7 +21,8 @@ public class Knight extends Piece {
             nr += dr[i];
             nc += dc[i];
             if(board[nr][nc].piece == null) {
-                moves.add(board[nr][nc]);
+                //moves.add(board[nr][nc]);
+                super.moves.add(new Move(this.pieceName, "", board[nr][nc], this.white));
             }
             else if((board[nr][nc].piece.white && this.white)
                     || !board[nr][nc].piece.white && !this.white) {
@@ -29,7 +30,8 @@ public class Knight extends Piece {
             }
             else if((board[nr][nc].piece.white && !this.white)
                     || !board[nr][nc].piece.white && this.white) {
-                moves.add(board[nr][nc]);
+                //moves.add(board[nr][nc]);
+                super.moves.add(new Move(this.pieceName, "x", board[nr][nc], this.white));
                 break;
             }
         }

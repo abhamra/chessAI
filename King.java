@@ -28,14 +28,22 @@ public class King extends Piece {
       int nc = pos.c + dc[i];
       if(nr < board.length && nr >= 0 && nc < board[0].length && nc >= 0) { // makes sure it's still within the bounds of the board
         if(white && board[nr][nc].whiteKingCanHere) { // checks if it's a safe spot (for white King)
-          if(board[nr][nc].piece == null || !board[nr][nc].piece.white) { // checks if tile is empty or contains enemy piece that can be taken
-            moves.add(board[nr][nc]);
+          if(board[nr][nc].piece == null) { // checks if tile is empty or contains enemy piece that can be taken
+            //moves.add(board[nr][nc]);
+            super.moves.add(new Move(this.pieceName, "", board[nr][nc], this.white));
+          }
+          if(!board[nr][nc].piece.white){
+            super.moves.add(new Move(this.pieceName, "x", board[nr][nc], this.white));
           }
         }
         if(!white && board[nr][nc].blackKingCanHere) { // checks if it's a safe spot (for black King)
-          if(board[nr][nc].piece == null || board[nr][nc].piece.white) { // checks if tile is empty or contains enemy piece that can be taken
-            moves.add(board[nr][nc]);
-          }
+        if(board[nr][nc].piece == null) { // checks if tile is empty or contains enemy piece that can be taken
+          //moves.add(board[nr][nc]);
+          super.moves.add(new Move(this.pieceName, "", board[nr][nc], this.white));
+        }
+        if(board[nr][nc].piece.white){
+          super.moves.add(new Move(this.pieceName, "x", board[nr][nc], this.white));
+        }
         }
       }
     }

@@ -24,7 +24,8 @@ public class Rook extends Piece {
         nr += dr[i];
         nc += dc[i];
         if(board[nr][nc].piece == null) { // if no piece in current tile
-          super.moves.add(board[nr][nc]); // just add it to valid moves
+          //super.moves.add(board[nr][nc]); // just add it to valid moves
+          super.moves.add(new Move(this.pieceName, "", board[nr][nc], this.white));
         }
         else if((board[nr][nc].piece.white && this.white)
               || !board[nr][nc].piece.white && !this.white) { // if same color
@@ -32,7 +33,8 @@ public class Rook extends Piece {
         }
         else if((board[nr][nc].piece.white && !this.white)
               || !board[nr][nc].piece.white && this.white) { // if diff color
-          super.moves.add(board[nr][nc]); // consider taking it
+          //super.moves.add(board[nr][nc]); // consider taking it
+          super.moves.add(new Move(this.pieceName, "x", board[nr][nc], this.white));
           break; // then break cuz you can't move past the piece if you want to take it
         }
       }
