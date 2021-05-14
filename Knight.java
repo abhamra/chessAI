@@ -4,6 +4,7 @@ public class Knight extends Piece {
     
     protected BoardLoc pos;
 	protected int pts = 3;
+    protected int relStrength = 30;
     protected String pieceName = "N";
 
     public Knight(int r, int c, boolean white, BoardLoc[][] board, String pieceName){

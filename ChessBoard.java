@@ -20,6 +20,7 @@ public class ChessBoard{
     private JFrame frame;
     public static void main(String[]args){
         new ChessBoard();
+    
     }//main
 
     public ChessBoard(){

@@ -4,6 +4,7 @@ public class Rook extends Piece {
 
   protected int pts = 5;
   protected String pieceName = "R";
+  protected int relStrength = 50;
   //protected int timesMoved; -- don't need anymore; made a instance variable in the Piece class
 
   public Rook(int r, int c, boolean white, BoardLoc[][] board, String pieceName)

@@ -4,6 +4,7 @@ public class Pawn extends Piece {
 
     protected int timesMoved;
     protected int pts = 1;
+    protected int relStrength = 10;
     protected String pieceName = null;
 
     public Pawn(int r, int c, boolean white, BoardLoc[][] board, String pieceName)

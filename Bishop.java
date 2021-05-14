@@ -4,6 +4,7 @@ public class Bishop extends Piece {
     
     protected BoardLoc pos;
 	protected int pts = 3;
+  protected int relStrength = 30;
   protected String pieceName = "B";
 
     public Bishop(int r, int c, boolean white, BoardLoc[][] board, String pieceName){

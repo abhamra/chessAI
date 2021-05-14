@@ -7,8 +7,9 @@ public class Piece {
 	protected int pts;
 	protected boolean white; // if true, white -- if false, black
 	protected String pieceName;
+	protected int relStrength;
 
-	protected ArrayList<BoardLoc> moves;
+	protected ArrayList<Move> moves;
 
 	protected int timesMoved;
 
@@ -18,6 +19,10 @@ public class Piece {
 		pos.piece = this;
 
 		this.white = white;
+
+		if(!white){
+			relStrength*=-1;
+		}
 
 		moves = new ArrayList<Move>();
 		timesMoved = 0;

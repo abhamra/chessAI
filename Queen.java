@@ -4,6 +4,7 @@ import java.util.*;
 public class Queen extends Piece {
 
   protected int pts = 9;
+  protected int relStrength = 90;
   protected String pieceName = "Q";
 
   public Queen(int r, int c, boolean white, BoardLoc[][] board, String pieceName)
