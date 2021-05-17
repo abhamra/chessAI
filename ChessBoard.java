@@ -20,7 +20,7 @@ public class ChessBoard{
     private JFrame frame;
     public static void main(String[]args){
         new ChessBoard();
-    
+
     }//main
 
     public ChessBoard(){
@@ -63,7 +63,7 @@ public class ChessBoard{
         @Override
         public void paintComponent(Graphics g) {
             Graphics2D g2 = (Graphics2D)g;
-            g2.setColor(Color.black);
+            g2.setColor(Color.GRAY);
             g2.fillRect(0, 0,(int)d.getWidth() , (int)d.getHeight());
 
 
