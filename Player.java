@@ -98,4 +98,12 @@ public class Player {
     randPiece.move(randMove.board);
   }//end
 
+  public ArrayList generatePossibleMoves(){
+    ArrayList<Move> possibleMoves = new ArrayList<Move>();
+    for(int i = 0;i<pieces.length;i++){
+      possibleMoves.addAll(pieces.get(i).moves);
+    }//end
+    return possibleMoves;
+  }//end
+
 }

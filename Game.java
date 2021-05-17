@@ -34,5 +34,36 @@ public class Game {
     return totalEvaluation;
   }//end func
 
+  public Move minimaxRoot(int depth, Game game, Player white, Player black, int moveCount){
+    //initializing variables
+    int bestMove = -9999;
+    Move bestMoveFound;
+
+    ArrayList<Move> possibleMoves = new ArrayList<Move>();
+    if(moveCount%2==0){
+      possibleMoves = white.generatePossibleMoves();
+    } else if(moveCount%2!=0){
+      possibleMoves = black.generatePossibleMoves();
+    }//end if for possible moves generation
+
+    for(int i = 0;i<possibleMoves.length;i++){
+      BoardLoc[][] boardState; 
+      //boardState = Game.board; (TRY SAVING THE BOARD STATE)
+      Move m = possibleMoves.get(i);
+      //MAKE THE MOVE
+      int value;// = minimax (the other one)
+      //UNDO THE MOVE
+      if(value>=bestMove){
+        bestMove = value;
+        bestMoveFound = m;
+      }
+
+    }//end
+
+
+    return bestMoveFound;
+    
+  }//end func
+
   
 }
