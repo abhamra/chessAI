@@ -60,10 +60,49 @@ public class Game {
 
     }//end
 
-
     return bestMoveFound;
     
   }//end func
 
+  public int minimax(int depth, Game game, Player white, Player black, int moveCount){
+
+    moveCount++;
+
+    //initialize
+    ArrayList<Move> possibleMoves = new ArrayList<Move>();
+
+    if (depth == 0) {//checking if "leaf node"
+      return -evaluateBoard(game.board);
+    }
+    if(moveCount%2==0){
+      possibleMoves = white.generatePossibleMoves();
+    } else if(moveCount%2!=0){
+      possibleMoves = black.generatePossibleMoves();
+    }//end if for possible moves generation
+
+    if(moveCount%2==0){
+      int bestMove = -9999;
+        for (int i = 0; i < possibleMoves.length; i++) {
+            //MAKE THE MOVE FROM POSSIBLEMOVES.GET(I);
+            bestMove = Math.max(bestMove, minimax(depth - 1, game, white, black, moveCount));
+            //UNDO THE MOVE
+        }//end
+
+        return bestMove;
+
+    } else {
+
+        int bestMove = 9999;
+        for (int i = 0; i < possibleMoves.length; i++) {
+            //MAKE THE MOVE FROM POSSIBLEMOVES.GET(I);
+            bestMove = Math.min(bestMove, minimax(depth - 1, game, white, black, moveCount));
+            //UNDO THE MOVE
+        }
+
+        return bestMove;
+
+    }//end if & else
+
+  }//end func
   
-}
+}//end class
