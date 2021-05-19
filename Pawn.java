@@ -6,6 +6,7 @@ public class Pawn extends Piece {
     protected int pts = 1;
     protected int relStrength = 10;
     protected String pieceName = null;
+    protected Stack<Move> prevMoves = new Stack<Move>();
 
     public Pawn(int r, int c, boolean white, BoardLoc[][] board, String pieceName)
     {
@@ -18,25 +19,25 @@ public class Pawn extends Piece {
       if(timesMoved == 0) { // first move
         if(white) {
           //moves.add(board[pos.r - 2][pos.c]);
-          moves.add(new Move(this.pieceName, "", board[pos.r - 2][pos.c], this.white));
+          moves.add(new Move(this.pieceName, "", board[pos.r - 2][pos.c], board[pos.r][pos.c], this.white));
           //moves.add(board[pos.r - 1][pos.c]);
-          moves.add(new Move(this.pieceName, "", board[pos.r - 1][pos.c], this.white));
+          moves.add(new Move(this.pieceName, "", board[pos.r - 1][pos.c], board[pos.r][pos.c], this.white));
         }
         else {
           //moves.add(board[pos.r + 2][pos.c]);
-          moves.add(new Move(this.pieceName, "", board[pos.r + 2][pos.c], this.white));
+          moves.add(new Move(this.pieceName, "", board[pos.r + 2][pos.c], board[pos.r][pos.c], this.white));
           //moves.add(board[pos.r + 1][pos.c]);
-          moves.add(new Move(this.pieceName, "", board[pos.r + 1][pos.c], this.white));
+          moves.add(new Move(this.pieceName, "", board[pos.r + 1][pos.c],board[pos.r][pos.c], this.white));
         }
       }
       else { // already moved once or more
         if(white) {
           //moves.add(board[pos.r - 1][pos.c]);
-          moves.add(new Move(this.pieceName, "", board[pos.r - 1][pos.c], this.white));
+          moves.add(new Move(this.pieceName, "", board[pos.r - 1][pos.c], board[pos.r][pos.c],this.white));
         }
         else {
           //moves.add(board[pos.r + 1][pos.c]);
-          moves.add(new Move(this.pieceName, "", board[pos.r + 1][pos.c], this.white));
+          moves.add(new Move(this.pieceName, "", board[pos.r + 1][pos.c], board[pos.r][pos.c], this.white));
         }
       }
 
