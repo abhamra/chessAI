@@ -36,7 +36,8 @@ public class ChessBoard{
 
     public static class InnerProgram extends JPanel implements Runnable, MouseListener  {
 
-        BoardLoc[][] board = new BoardLoc[8][8];
+        Game game = new Game();
+        //BoardLoc[][] board = new BoardLoc[8][8];
         private Thread animator;
         Dimension d;
 
@@ -77,8 +78,8 @@ public class ChessBoard{
             g2.drawString("String " + str,20,40);
 
 
-            for(int r = 0;r<board.length;r++){
-                for(int c = 0;c<board[0].length;c++){
+            for(int r = 0;r<game.board.length;r++){
+                for(int c = 0;c<game.board[0].length;c++){
                     if((r+c)%2==0){
                         g2.setColor(Color.white);
                         g2.fillRect(r*100, c*100, 100, 100);
@@ -87,7 +88,12 @@ public class ChessBoard{
             }//end for
 
 
-
+            for(Piece p : game.player1.pieces) {
+              piece.draw(g2);
+            }
+            for(Piece p : game.player2.pieces) {
+              piece.draw(g2);
+            }
 
 
 
