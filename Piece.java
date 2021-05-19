@@ -14,6 +14,7 @@ public class Piece {
 	protected int relStrength;
 
 	protected ArrayList<Move> moves;
+	protected Stack<Move> prevMoves;
 
 	protected int timesMoved;
 
@@ -31,6 +32,7 @@ public class Piece {
 		}
 
 		moves = new ArrayList<Move>();
+		prevMoves = new Stack<Move>();
 		timesMoved = 0;
 	}
 
@@ -49,6 +51,12 @@ public class Piece {
 
 	}
 
+	public void undoMove(Move move){
+		//finish later, take the "currentPosition" from the move and pass that through
+		pos.r = move.currPos.r;
+		pos.c = move.currPos.c;
+	}//end func
+
 	public boolean move(BoardLoc location) {
 		//pos.piece = null;
 		//pos = location;
@@ -58,6 +66,7 @@ public class Piece {
 			pos.piece = null;
 			this.pos = location;
 			timesMoved++;
+			//prevMoves.push(new Move(pieceName, "", location, new BoardLoc(pos.r, pos.c),this.white));
 			return true;
 		}
 		else if((location.piece.white && !this.white)
@@ -67,6 +76,8 @@ public class Piece {
 			pos.piece = null;
 			this.pos = location;
 			timesMoved++;
+			//public Move(String pieceName, String action, BoardLoc move, boolean white){
+				prevMoves.push(new Move(pieceName, "x", location, new BoardLoc(pos.piece.r, pos.piece.c),this.white));
 			return true;
 		}
 		else {

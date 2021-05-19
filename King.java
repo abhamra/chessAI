@@ -54,19 +54,19 @@ public class King extends Piece {
         if(white && board[nr][nc].whiteKingCanHere) { // checks if it's a safe spot (for white King)
           if(board[nr][nc].piece == null) { // checks if tile is empty or contains enemy piece that can be taken
             //moves.add(board[nr][nc]);
-            super.moves.add(new Move(this.pieceName, "", board[nr][nc], this.white));
+            super.moves.add(new Move(this.pieceName, "", board[nr][nc], board[pos.r][pos.c], this.white));
           }
           if(!board[nr][nc].piece.white){
-            super.moves.add(new Move(this.pieceName, "x", board[nr][nc], this.white));
+            super.moves.add(new Move(this.pieceName, "x", board[nr][nc], board[pos.r][pos.c], this.white));
           }
         }
         if(!white && board[nr][nc].blackKingCanHere) { // checks if it's a safe spot (for black King)
         if(board[nr][nc].piece == null) { // checks if tile is empty or contains enemy piece that can be taken
           //moves.add(board[nr][nc]);
-          super.moves.add(new Move(this.pieceName, "", board[nr][nc], this.white));
+          super.moves.add(new Move(this.pieceName, "", board[nr][nc], board[pos.r][pos.c], this.white));
         }
         if(board[nr][nc].piece.white){
-          super.moves.add(new Move(this.pieceName, "x", board[nr][nc], this.white));
+          super.moves.add(new Move(this.pieceName, "x", board[nr][nc], board[pos.r][pos.c], this.white));
         }
         }
       }
