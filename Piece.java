@@ -1,5 +1,9 @@
 
 import java.util.*;
+import java.net.URL;
+import java.awt.Graphics;
+import java.awt.Image;
+import javax.imageio.ImageIO;
 
 public class Piece {
 
@@ -12,6 +16,8 @@ public class Piece {
 	protected ArrayList<Move> moves;
 
 	protected int timesMoved;
+
+	protected Image image;
 
 	public Piece(int r, int c, boolean white)
 	{
@@ -71,4 +77,8 @@ public class Piece {
 	/*public boolean sameColor() { -- I may consider implementing this since it comes up in a lot of places
 
 	}*/
+
+	public void draw(Graphics window) {
+		window.drawImage(image, pos.c * 100, pos.r * 100, 100, 100, null);
+	}
 }

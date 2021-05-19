@@ -1,5 +1,9 @@
 
 import java.util.*;
+import java.net.URL;
+import java.awt.Graphics;
+import java.awt.Image;
+import javax.imageio.ImageIO;
 
 public class King extends Piece {
 
@@ -11,6 +15,8 @@ public class King extends Piece {
   protected int relStrength = 900;
   protected String pieceName = "K";
 
+  //protected Image image;
+
   public King(int r, int c, boolean white, BoardLoc[][] board, String pieceName)
   {
     super(r, c, white, board, pieceName);
@@ -18,6 +24,23 @@ public class King extends Piece {
     gameOver = false;
 
     pts = 0; // I'm just making a point value because I will use it to determine if a piece is the King
+
+    if(white) {
+      try {
+		     URL url = getClass().getResource("White king (simple)-1.png.png");
+			   super.image = ImageIO.read(url);
+		  } catch(Exception e) {
+			   e.printStackTrace();
+		  }
+    }
+    else {
+      try {
+		     URL url = getClass().getResource("Black king (simple)-1.png.png");
+			   super.image = ImageIO.read(url);
+		  } catch(Exception e) {
+			   e.printStackTrace();
+		  }
+    }
   }
 
   public void generateValidMoves(BoardLoc[][] board) {

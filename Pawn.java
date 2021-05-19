@@ -1,5 +1,10 @@
 
 import java.util.*;
+import java.net.URL;
+import java.awt.Graphics;
+import java.awt.Image;
+import javax.imageio.ImageIO;
+
 public class Pawn extends Piece {
 
     protected int timesMoved;
@@ -11,6 +16,23 @@ public class Pawn extends Piece {
     {
         super(r, c, white, board, pieceName);
         timesMoved = 0;
+
+        if(white) {
+          try {
+    		     URL url = getClass().getResource("White Pawn-1.png.png");
+    			   super.image = ImageIO.read(url);
+    		  } catch(Exception e) {
+    			   e.printStackTrace();
+    		  }
+        }
+        else {
+          try {
+    		     URL url = getClass().getResource("Black Pawn-1.png.png");
+    			   super.image = ImageIO.read(url);
+    		  } catch(Exception e) {
+    			   e.printStackTrace();
+    		  }
+        }
     }//end constructor
 
     public void generateValidMoves(BoardLoc[][] board) {

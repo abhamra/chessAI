@@ -1,5 +1,9 @@
 
 import java.util.*;
+import java.net.URL;
+import java.awt.Graphics;
+import java.awt.Image;
+import javax.imageio.ImageIO;
 
 public class Queen extends Piece {
 
@@ -10,6 +14,22 @@ public class Queen extends Piece {
   public Queen(int r, int c, boolean white, BoardLoc[][] board, String pieceName)
   {
     super(r, c, white, board, pieceName);
+    if(white) {
+      try {
+		     URL url = getClass().getResource("White queen (simple)-1.png.png");
+			   super.image = ImageIO.read(url);
+		  } catch(Exception e) {
+			   e.printStackTrace();
+		  }
+    }
+    else {
+      try {
+		     URL url = getClass().getResource("Black queen (simple)-1.png.png");
+			   super.image = ImageIO.read(url);
+		  } catch(Exception e) {
+			   e.printStackTrace();
+		  }
+    }
   }
 
   public void generateValidMoves(BoardLoc[][] board) {
@@ -41,4 +61,3 @@ public class Queen extends Piece {
     }
   }
 }//end of class
-
