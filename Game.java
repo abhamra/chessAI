@@ -7,6 +7,9 @@ public class Game {
   protected Player player1;
   protected Player player2;
 
+  protected Piece p1Selected;
+  protected Piece p2Selected;
+
   protected int moveCount;
 
   public Game()
@@ -20,6 +23,9 @@ public class Game {
 
     player1 = new Player(board, true);//white
     player2 = new Player(board, false);
+
+    p1Selected = null;
+    p2Selected = null;
 
     moveCount = 0;
   }
@@ -47,7 +53,7 @@ public class Game {
   //   }//end if for possible moves generation
 
   //   for(int i = 0;i<possibleMoves.size();i++){
-  //     BoardLoc[][] boardState; 
+  //     BoardLoc[][] boardState;
   //     //boardState = Game.board; (TRY SAVING THE BOARD STATE)
   //     Move m = possibleMoves.get(i);
   //     //MAKE THE MOVE
@@ -61,7 +67,7 @@ public class Game {
   //   }//end
 
   //   return bestMoveFound;
-    
+
   // }//end func
 
   // public int minimax(int depth, Game game, Player white, Player black, int moveCount){
@@ -80,13 +86,13 @@ public class Game {
   //     possibleMoves = black.generatePossibleMoves();
   //   }//end if for possible moves generation
 
-  //   if(moveCount%2==0){
-  //     int bestMove = -9999;
-  //       for (int i = 0; i < possibleMoves.size(); i++) {
-  //           //MAKE THE MOVE FROM POSSIBLEMOVES.GET(I);
-  //           bestMove = Math.max(bestMove, minimax(depth - 1, game, white, black, moveCount));
-  //           //UNDO THE MOVE
-  //       }//end
+    // if(moveCount%2==0){
+    //   int bestMove = -9999;
+    //     for (int i = 0; i < possibleMoves.size(); i++) {
+    //         //MAKE THE MOVE FROM POSSIBLEMOVES.GET(I);
+    //         bestMove = Math.max(bestMove, minimax(depth - 1, game, white, black, moveCount));
+    //         //UNDO THE MOVE
+    //     }//end
 
   //       return bestMove;
 
@@ -104,5 +110,5 @@ public class Game {
   //   }//end if & else
 
   // }//end func
-  
+
 }//end class

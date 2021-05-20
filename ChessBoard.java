@@ -102,8 +102,7 @@ public class ChessBoard{
 
 
         public void mousePressed(MouseEvent e) {
-
-       xPos = e.getX();
+            xPos = e.getX();
             yPos = e.getY();
             str = xPos + " " + yPos;
         }
@@ -119,6 +118,53 @@ public class ChessBoard{
 
         public void mouseClicked(MouseEvent e) {
 
+          xPos = e.getX();
+          yPos = e.getY();
+
+          int r = yPos / 100;
+          int c = xPos / 100;
+
+          Piece selected = board[r][c].piece;
+
+            if(moveCount % 2 == 0) { // if white's move
+              if(game.p1Selected == null) { // if white has not chosen a piece yet
+                  if(selected.white) {
+                    game.p1Selected = selected;
+                  }
+              }
+              else { // if already selected
+                /*for(Move m : game.p1Selected.moves) {
+                  if(m.move == board[r][c]) {
+                    game.p1Selected.move(board[r][c]);
+                    p1Selected.
+                  }
+                }*/
+
+                if(game.p1Selected.move(board[r][c])) {
+                  p1Selected = null;
+                }
+              }
+            }
+            else { // if black's move
+              if(game.p2Selected == null) { // if black has not chosen a piece yet
+                  if(!selected.white) {
+                    game.p2Selected = selected;
+                  }
+              }
+              else { // if already selected
+                /*for(Move m : game.p1Selected.moves) {
+                  if(m.move == board[r][c]) {
+                    game.p1Selected.move(board[r][c]);
+                    p1Selected.
+                  }
+                }*/
+
+                if(game.p2Selected.move(board[r][c])) {
+                  p2Selected = null;
+                }
+              }
+            }
+          }
         }
 
         private class TAdapter extends KeyAdapter {
