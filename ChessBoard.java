@@ -142,6 +142,7 @@ public class ChessBoard{
 
                 if(game.p1Selected.move(board[r][c])) {
                   p1Selected = null;
+                  game.moveCount++;
                 }
               }
             }
@@ -161,6 +162,7 @@ public class ChessBoard{
 
                 if(game.p2Selected.move(board[r][c])) {
                   p2Selected = null;
+                  game.moveCount++;
                 }
               }
             }
