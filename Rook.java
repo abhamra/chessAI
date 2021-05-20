@@ -19,7 +19,7 @@ public class Rook extends Piece {
 
     if(white) {
       try {
-		     URL url = getClass().getResource("White rook (simple)-1.png.png");
+		     URL url = getClass().getResource("White_rook_(simple)-1.png");
 			   super.image = ImageIO.read(url);
 		  } catch(Exception e) {
 			   e.printStackTrace();
@@ -27,7 +27,7 @@ public class Rook extends Piece {
     }
     else {
       try {
-		     URL url = getClass().getResource("Black rook (simple)-1.png.png");
+		     URL url = getClass().getResource("Black_rook_(simple)-1.png");
 			   super.image = ImageIO.read(url);
 		  } catch(Exception e) {
 			   e.printStackTrace();
@@ -36,7 +36,7 @@ public class Rook extends Piece {
   }
 
   public void generateValidMoves(BoardLoc[][] board) {
-    super.moves = new ArrayList<BoardLoc>(); // change to ArrayList<Move>();
+    super.moves = new ArrayList<Move>(); // change to ArrayList<Move>();
     int[] dr = {0, 1, 0, -1}; // handles the four directions
     int[] dc = {1, 0, -1, 0}; // handles the four directions
     for(int i = 0; i < 4; i++) { // iterates through the four directions
