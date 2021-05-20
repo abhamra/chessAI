@@ -91,16 +91,16 @@ public class Player {
     }
   }
 
-  public void generateRandomMove(){
-    Piece randPiece = pieces.get(Math.floor(Math.random()*(pieces.size()-0+1)+0));
-    Move randMove = randPiece.moves.get(Math.floor(Math.random()*(randPiece.moves.size()-0+1)+0));
+  // public void generateRandomMove(){
+  //   Piece randPiece = pieces.get(Math.floor(Math.random()*(pieces.size()-0+1)+0));
+  //   Move randMove = randPiece.moves.get(Math.floor(Math.random()*(randPiece.moves.size()-0+1)+0));
 
-    randPiece.move(randMove.move);
-  }//end
+  //   randPiece.move(randMove.move);
+  // }//end
 
   public ArrayList generatePossibleMoves(){
     ArrayList<Move> possibleMoves = new ArrayList<Move>();
-    for(int i = 0;i<pieces.length;i++){
+    for(int i = 0;i<pieces.size();i++){
       possibleMoves.addAll(pieces.get(i).moves);
     }//end
     return possibleMoves;
