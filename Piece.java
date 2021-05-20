@@ -45,6 +45,8 @@ public class Piece {
 
 		moves = new ArrayList<Move>();
 		timesMoved = 0;
+
+		this.pieceName = pieceName;
 	}
 
 	public void generateValidMoves() { // OVERRIDE this method

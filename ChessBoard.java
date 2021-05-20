@@ -124,12 +124,15 @@ public class ChessBoard{
           int r = yPos / 100;
           int c = xPos / 100;
 
-          Piece selected = board[r][c].piece;
+          Piece selected = game.board[r][c].piece;
 
-            if(moveCount % 2 == 0) { // if white's move
+            if(game.moveCount % 2 == 0) { // if white's move
               if(game.p1Selected == null) { // if white has not chosen a piece yet
+                System.out.println("WHITE'S MOVE!");
                   if(selected.white) {
+                    System.out.println("SELECTED VALID PIECE!");
                     game.p1Selected = selected;
+                    System.out.println("White selected " + game.p1Selected.pieceName + " at " + game.p1Selected.pos.c + ", " + game.p1Selected.pos.r);
                   }
               }
               else { // if already selected
@@ -140,8 +143,9 @@ public class ChessBoard{
                   }
                 }*/
 
-                if(game.p1Selected.move(board[r][c])) {
-                  p1Selected = null;
+                if(game.p1Selected.move(game.board[r][c])) {
+                  System.out.println("MOVED!");
+                  game.p1Selected = null;
                   game.moveCount++;
                 }
               }
@@ -160,14 +164,14 @@ public class ChessBoard{
                   }
                 }*/
 
-                if(game.p2Selected.move(board[r][c])) {
-                  p2Selected = null;
+                if(game.p2Selected.move(game.board[r][c])) {
+                  game.p2Selected = null;
                   game.moveCount++;
                 }
               }
             }
           }
-        }
+        
 
         private class TAdapter extends KeyAdapter {
 
@@ -179,7 +183,7 @@ public class ChessBoard{
             public void keyPressed(KeyEvent e) {
                 int key = e.getKeyCode();
                 String c = KeyEvent.getKeyText(e.getKeyCode());
-                str += " char " + c + " key " + key;
+                //str += " char " + c + " key " + key;
               // c = Character.toString((char) key);
 
 
@@ -204,9 +208,6 @@ public class ChessBoard{
                 } // end catch
             } // end while loop
         }// end of run
-
-
-
 
     }//end of class (inner program)
 
