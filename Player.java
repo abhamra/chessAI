@@ -35,20 +35,20 @@ public class Player {
     }
     else {
       for(int i = 0; i < 8; i++) { // set up black pawns
-        pieces.add(new Pawn(1, i, true, board, null));
+        pieces.add(new Pawn(1, i, false, board, null));
       }
       // set up the rest of black pieces
-      pieces.add((king = new King(0, 3, true, board, "K")));
-      pieces.add(new Queen(0, 4, true, board, "Q"));
+      pieces.add((king = new King(0, 3, false, board, "K")));
+      pieces.add(new Queen(0, 4, false, board, "Q"));
 
-      pieces.add(new Bishop(0, 2, true, board, "B"));
-      pieces.add(new Bishop(0, 5, true, board, "B"));
+      pieces.add(new Bishop(0, 2, false, board, "B"));
+      pieces.add(new Bishop(0, 5, false, board, "B"));
 
-      pieces.add(new Knight(0, 1, true, board, "K"));
-      pieces.add(new Knight(0, 6, true, board, "K"));
+      pieces.add(new Knight(0, 1, false, board, "K"));
+      pieces.add(new Knight(0, 6, false, board, "K"));
 
-      pieces.add(new Rook(0, 0, true, board, "R"));
-      pieces.add(new Rook(0, 7, true, board, "R"));
+      pieces.add(new Rook(0, 0, false, board, "R"));
+      pieces.add(new Rook(0, 7, false, board, "R"));
     }
 
     isStalemate = false;
