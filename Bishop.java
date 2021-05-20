@@ -35,7 +35,7 @@ public class Bishop extends Piece {
     }//end constructor
 
     public void generateValidMoves(BoardLoc[][] board) {
-        moves = new ArrayList<BoardLoc>();
+        moves = new ArrayList<Move>();
         int[] dr = {1, -1, 1, -1};
         int[] dc = {1, 1, -1, -1};
         for(int i = 0; i < 4; i++) {

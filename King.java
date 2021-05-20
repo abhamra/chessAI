@@ -44,7 +44,7 @@ public class King extends Piece {
   }
 
   public void generateValidMoves(BoardLoc[][] board) {
-    moves = new ArrayList<BoardLoc>();
+    moves = new ArrayList<Move>();
     int[] dr = {0, 1, 1, 1, 0, -1, -1, -1};
     int[] dc = {1, 1, 0, -1, -1, -1, 0, 1};
     for(int i = 0; i < dr.length; i++) { // iterate through possible moves

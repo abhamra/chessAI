@@ -89,10 +89,10 @@ public class ChessBoard{
 
 
             for(Piece p : game.player1.pieces) {
-              piece.draw(g2);
+              p.draw(g2);
             }
             for(Piece p : game.player2.pieces) {
-              piece.draw(g2);
+              p.draw(g2);
             }
 
 

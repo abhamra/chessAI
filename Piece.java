@@ -77,7 +77,7 @@ public class Piece {
 			this.pos = location;
 			timesMoved++;
 			//public Move(String pieceName, String action, BoardLoc move, boolean white){
-				prevMoves.push(new Move(pieceName, "x", location, new BoardLoc(pos.piece.r, pos.piece.c),this.white));
+				prevMoves.push(new Move(pieceName, "x", location, new BoardLoc(pos.r, pos.c),this.white));
 			return true;
 		}
 		else {

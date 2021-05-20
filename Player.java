@@ -92,10 +92,10 @@ public class Player {
   }
 
   public void generateRandomMove(){
-    Piece randPiece = pieces.get(Math.floor(Math.random()*(pieces.length-0+1)+0));
-    Move randMove = randPiece.moves.get(Math.floor(Math.random()*(randPiece.moves.length-0+1)+0));
+    Piece randPiece = pieces.get(Math.floor(Math.random()*(pieces.size()-0+1)+0));
+    Move randMove = randPiece.moves.get(Math.floor(Math.random()*(randPiece.moves.size()-0+1)+0));
 
-    randPiece.move(randMove.board);
+    randPiece.move(randMove.move);
   }//end
 
   public ArrayList generatePossibleMoves(){

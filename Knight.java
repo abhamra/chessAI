@@ -33,7 +33,7 @@ public class Knight extends Piece {
     }//end constructor
 
     public void generateValidMoves(BoardLoc[][] board) {
-        moves = new ArrayList<BoardLoc>();
+        moves = new ArrayList<Move>();
         int[] dr = {1, 1, -1, -1, 2, 2, -2, -2};
         int[] dc = {2, -2, 2, -2, 1, -1, 1, -1};
         for(int i = 0; i < 8; i++) {

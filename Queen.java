@@ -33,7 +33,7 @@ public class Queen extends Piece {
   }
 
   public void generateValidMoves(BoardLoc[][] board) {
-    super.moves = new ArrayList<BoardLoc>();
+    super.moves = new ArrayList<Move>();
     int[] dr = {0, 1, 1, 1, 0, -1, -1, -1}; // handles the eight directions
     int[] dc = {1, 1, 0, -1, -1, -1, 0, 1}; // handles the eight directions
     for(int i = 0; i < dr.length; i++) { // iterates through the eight directions
