@@ -16,7 +16,7 @@ public class Queen extends Piece {
     super(r, c, white, board, pieceName);
     if(white) {
       try {
-		     URL url = getClass().getResource("White queen (simple)-1.png.png");
+		     URL url = getClass().getResource("white_queen_(simple)-1.png");
 			   super.image = ImageIO.read(url);
 		  } catch(Exception e) {
 			   e.printStackTrace();
@@ -24,7 +24,7 @@ public class Queen extends Piece {
     }
     else {
       try {
-		     URL url = getClass().getResource("Black queen (simple)-1.png.png");
+		     URL url = getClass().getResource("black_queen_(simple)-1.png");
 			   super.image = ImageIO.read(url);
 		  } catch(Exception e) {
 			   e.printStackTrace();

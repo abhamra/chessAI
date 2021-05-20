@@ -27,7 +27,7 @@ public class King extends Piece {
 
     if(white) {
       try {
-		     URL url = getClass().getResource("White king (simple)-1.png.png");
+		     URL url = getClass().getResource("White_king_(simple)-1.png");
 			   super.image = ImageIO.read(url);
 		  } catch(Exception e) {
 			   e.printStackTrace();
@@ -35,7 +35,7 @@ public class King extends Piece {
     }
     else {
       try {
-		     URL url = getClass().getResource("Black king (simple)-1.png.png");
+		     URL url = getClass().getResource("Black_king_(simple)-1.png");
 			   super.image = ImageIO.read(url);
 		  } catch(Exception e) {
 			   e.printStackTrace();

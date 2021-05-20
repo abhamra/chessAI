@@ -18,7 +18,7 @@ public class Bishop extends Piece {
 
         if(white) {
           try {
-    		     URL url = getClass().getResource("White bishop (simple)-1.png.png");
+    		     URL url = getClass().getResource("White_bishop_(simple)-1.png");
     			   super.image = ImageIO.read(url);
     		  } catch(Exception e) {
     			   e.printStackTrace();
@@ -26,7 +26,7 @@ public class Bishop extends Piece {
         }
         else {
           try {
-    		     URL url = getClass().getResource("Black bishop (simple)-1.png.png");
+    		     URL url = getClass().getResource("Black_bishop_(simple)-1.png");
     			   super.image = ImageIO.read(url);
     		  } catch(Exception e) {
     			   e.printStackTrace();

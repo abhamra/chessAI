@@ -20,7 +20,7 @@ public class Pawn extends Piece {
 
         if(white) {
           try {
-    		     URL url = getClass().getResource("White Pawn-1.png.png");
+    		     URL url = getClass().getResource("White_Pawn-1.png");
     			   super.image = ImageIO.read(url);
     		  } catch(Exception e) {
     			   e.printStackTrace();
@@ -28,7 +28,7 @@ public class Pawn extends Piece {
         }
         else {
           try {
-    		     URL url = getClass().getResource("Black Pawn-1.png.png");
+    		     URL url = getClass().getResource("Black_Pawn-1.png");
     			   super.image = ImageIO.read(url);
     		  } catch(Exception e) {
     			   e.printStackTrace();

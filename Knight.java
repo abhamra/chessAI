@@ -16,7 +16,7 @@ public class Knight extends Piece {
         super(r, c, white, board, pieceName);
         if(white) {
           try {
-    		     URL url = getClass().getResource("White knight (simple)-1.png.png");
+    		     URL url = getClass().getResource("White_knight_(simple)-1.png");
     			   super.image = ImageIO.read(url);
     		  } catch(Exception e) {
     			   e.printStackTrace();
@@ -24,7 +24,7 @@ public class Knight extends Piece {
         }
         else {
           try {
-    		     URL url = getClass().getResource("Black knight (simple)-1.png.png");
+    		     URL url = getClass().getResource("Black_knight_(simple)-1.png");
     			   super.image = ImageIO.read(url);
     		  } catch(Exception e) {
     			   e.printStackTrace();
