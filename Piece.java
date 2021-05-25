@@ -84,9 +84,9 @@ public class Piece {
 				prevMoves.push(new Move(pieceName, "x", location, new BoardLoc(pos.r, pos.c),this.white));
 			return true;
 		}
-		else {
-			return false;
-		}
+
+		return false;
+	
 	}
 
 	/*public boolean sameColor() { -- I may consider implementing this since it comes up in a lot of places
