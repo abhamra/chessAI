@@ -63,13 +63,15 @@ public class Piece {
 		//pos.piece = null;
 		//pos = location;
 
-		if(location.piece == null && moves.contains(location)) {
-			location.piece = this;
-			pos.piece = null;
-			this.pos = location;
-			timesMoved++;
-			//prevMoves.push(new Move(pieceName, "", location, new BoardLoc(pos.r, pos.c),this.white));
-			return true;
+		if(location.piece == null) {
+			if(moves.contains(location)) {
+				location.piece = this;
+				pos.piece = null;
+				this.pos = location;
+				timesMoved++;
+				//prevMoves.push(new Move(pieceName, "", location, new BoardLoc(pos.r, pos.c),this.white));
+				return true;
+			}
 		}
 		else if((location.piece.white && !this.white)
 			 	 || (!location.piece.white && this.white)

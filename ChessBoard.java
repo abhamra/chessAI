@@ -90,11 +90,12 @@ public class ChessBoard{
 
             for(Piece p : game.player1.pieces) {
               p.draw(g2);
+              p.generateValidMoves();
             }
             for(Piece p : game.player2.pieces) {
               p.draw(g2);
+              p.generateValidMoves();
             }
-
 
 
         }
@@ -171,7 +172,7 @@ public class ChessBoard{
               }
             }
           }
-        
+
 
         private class TAdapter extends KeyAdapter {
 
