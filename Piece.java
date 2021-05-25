@@ -70,6 +70,7 @@ public class Piece {
 				this.pos = location;
 				timesMoved++;
 				//prevMoves.push(new Move(pieceName, "", location, new BoardLoc(pos.r, pos.c),this.white));
+				System.out.println("Move - No Capture");
 				return true;
 			}
 			return false;
@@ -82,10 +83,12 @@ public class Piece {
 			this.pos = location;
 			timesMoved++;
 			//public Move(String pieceName, String action, BoardLoc move, boolean white){
-				prevMoves.push(new Move(pieceName, "x", location, new BoardLoc(pos.r, pos.c),this.white));
+				//prevMoves.push(new Move(pieceName, "x", location, new BoardLoc(pos.r, pos.c),this.white));
+				System.out.println("Move - Capture");
 			return true;
 		}
 
+		System.out.println("Neither!");
 		return false;
 	
 	}

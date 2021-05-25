@@ -40,75 +40,85 @@ public class Game {
     return totalEvaluation;
   }//end func
 
-  // public Move minimaxRoot(int depth, Game game, Player white, Player black, int moveCount){
-  //   //initializing variables
-  //   int bestMove = -9999;
-  //   Move bestMoveFound;
+  public Move minimaxRoot(int depth, Game game, Player white, Player black, int moveCount){
+    //initializing variables
+    int bestMove = -9999;
+    Move bestMoveFound = null;
 
-  //   ArrayList<Move> possibleMoves = new ArrayList<Move>();
-  //   if(moveCount%2==0){
-  //     possibleMoves = white.generatePossibleMoves();
-  //   } else if(moveCount%2!=0){
-  //     possibleMoves = black.generatePossibleMoves();
-  //   }//end if for possible moves generation
+    ArrayList<Move> possibleMoves = new ArrayList<Move>();
+    if(moveCount%2==0){
+      possibleMoves = white.generatePossibleMoves();
+    } else if(moveCount%2!=0){
+      possibleMoves = black.generatePossibleMoves();
+    }//end if for possible moves generation
 
-  //   for(int i = 0;i<possibleMoves.size();i++){
-  //     BoardLoc[][] boardState;
-  //     //boardState = Game.board; (TRY SAVING THE BOARD STATE)
-  //     Move m = possibleMoves.get(i);
-  //     //MAKE THE MOVE
-  //     int value;// = minimax (the other one)
-  //     //UNDO THE MOVE
-  //     if(value>=bestMove){
-  //       bestMove = value;
-  //       bestMoveFound = m;
-  //     }
+    for(int i = 0;i<possibleMoves.size();i++){
 
-  //   }//end
+      Move m = possibleMoves.get(i);
 
-  //   return bestMoveFound;
+      game.board[m.currPos.r][m.currPos.c].piece.move(m.move);//make the move
 
-  // }//end func
+      int value = minimax(depth-1, game, white, black, moveCount+1);
+      //UNDO THE MOVE
+      game.board[m.move.r][m.move.c].piece.undoMove(m);
 
-  // public int minimax(int depth, Game game, Player white, Player black, int moveCount){
+      if(value>=bestMove){
+        bestMove = value;
+        bestMoveFound = m;
+      }
 
-  //   moveCount++;
+    }//end
 
-  //   //initialize
-  //   ArrayList<Move> possibleMoves = new ArrayList<Move>();
+    return bestMoveFound;
 
-  //   if (depth == 0) {//checking if "leaf node"
-  //     return -evaluateBoard(game.board);
-  //   }
-  //   if(moveCount%2==0){
-  //     possibleMoves = white.generatePossibleMoves();
-  //   } else if(moveCount%2!=0){
-  //     possibleMoves = black.generatePossibleMoves();
-  //   }//end if for possible moves generation
+  }//end func
 
-    // if(moveCount%2==0){
-    //   int bestMove = -9999;
-    //     for (int i = 0; i < possibleMoves.size(); i++) {
-    //         //MAKE THE MOVE FROM POSSIBLEMOVES.GET(I);
-    //         bestMove = Math.max(bestMove, minimax(depth - 1, game, white, black, moveCount));
-    //         //UNDO THE MOVE
-    //     }//end
+  public int minimax(int depth, Game game, Player white, Player black, int moveCount){
 
-  //       return bestMove;
+    moveCount++;
 
-  //   } else {
+    //initialize
+    ArrayList<Move> possibleMoves = new ArrayList<Move>();
 
-  //       int bestMove = 9999;
-  //       for (int i = 0; i < possibleMoves.size(); i++) {
-  //           //MAKE THE MOVE FROM POSSIBLEMOVES.GET(I);
-  //           bestMove = Math.min(bestMove, minimax(depth - 1, game, white, black, moveCount));
-  //           //UNDO THE MOVE
-  //       }
+    if (depth == 0) {//checking if "leaf node"
+      return -evaluateBoard(game.board);
+    }
+    if(moveCount%2==0){
+      possibleMoves = white.generatePossibleMoves();
+    } else if(moveCount%2!=0){
+      possibleMoves = black.generatePossibleMoves();
+    }//end if for possible moves generation
 
-  //       return bestMove;
+    if(moveCount%2==0){
+      int bestMove = -9999;
+        for (int i = 0; i < possibleMoves.size(); i++) {
+            //MAKE THE MOVE FROM POSSIBLEMOVES.GET(I);
 
-  //   }//end if & else
+            Move m = possibleMoves.get(i);
 
-  // }//end func
+            game.board[m.currPos.r][m.currPos.c].piece.move(m.move);//make the move
+
+            bestMove = Math.max(bestMove, minimax(depth - 1, game, white, black, moveCount));
+            //UNDO THE MOVE
+            game.board[m.move.r][m.move.c].piece.undoMove(m);
+
+        }//end
+
+        return bestMove;
+
+    } else {
+
+        int bestMove = 9999;
+        for (int i = 0; i < possibleMoves.size(); i++) {
+            //MAKE THE MOVE FROM POSSIBLEMOVES.GET(I);
+            bestMove = Math.min(bestMove, minimax(depth - 1, game, white, black, moveCount));
+            //UNDO THE MOVE
+        }
+
+        return bestMove;
+
+    }//end if & else
+
+  }//end func
 
 }//end class
