@@ -21,6 +21,7 @@ public class Pawn extends Piece {
         if(white) {
           try {
     		     URL url = getClass().getResource("White_Pawn-1.png");
+             //System.out.println(url);
     			   super.image = ImageIO.read(url);
     		  } catch(Exception e) {
     			   e.printStackTrace();

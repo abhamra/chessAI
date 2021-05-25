@@ -98,7 +98,7 @@ public class Player {
   //   randPiece.move(randMove.move);
   // }//end
 
-  public ArrayList generatePossibleMoves(){
+  public ArrayList<Move> generatePossibleMoves(){
     ArrayList<Move> possibleMoves = new ArrayList<Move>();
     for(int i = 0;i<pieces.size();i++){
       possibleMoves.addAll(pieces.get(i).moves);

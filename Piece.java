@@ -72,6 +72,7 @@ public class Piece {
 				//prevMoves.push(new Move(pieceName, "", location, new BoardLoc(pos.r, pos.c),this.white));
 				return true;
 			}
+			return false;
 		}
 		else if((location.piece.white && !this.white)
 			 	 || (!location.piece.white && this.white)
