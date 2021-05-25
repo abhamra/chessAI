@@ -87,14 +87,37 @@ public class ChessBoard{
                 }//end nested
             }//end for
 
-
             for(Piece p : game.player1.pieces) {
               p.draw(g2);
-              p.generateValidMoves();
+              if(p.pieceName==null){
+                ((Pawn)p).generateValidMoves();
+              } else if (p.pieceName.equals("N")){
+                ((Knight)p).generateValidMoves();
+              } else if (p.pieceName.equals("B")){
+                ((Bishop)p).generateValidMoves();
+              } else if (p.pieceName.equals("R")){
+                ((Rook)p).generateValidMoves();
+              } else if (p.pieceName.equals("Q")){
+                ((Queen)p).generateValidMoves();
+              } else if (p.pieceName.equals("K")){
+                ((King)p).generateValidMoves();
+              } 
             }
             for(Piece p : game.player2.pieces) {
               p.draw(g2);
-              p.generateValidMoves();
+              if(p.pieceName==null){
+                ((Pawn)p).generateValidMoves();
+              } else if (p.pieceName.equals("N")){
+                ((Knight)p).generateValidMoves();
+              } else if (p.pieceName.equals("B")){
+                ((Bishop)p).generateValidMoves();
+              } else if (p.pieceName.equals("R")){
+                ((Rook)p).generateValidMoves();
+              } else if (p.pieceName.equals("Q")){
+                ((Queen)p).generateValidMoves();
+              } else if (p.pieceName.equals("K")){
+                ((King)p).generateValidMoves();
+              } 
             }
 
 
@@ -133,7 +156,7 @@ public class ChessBoard{
                   if(selected.white) {
                     System.out.println("SELECTED VALID PIECE!");
                     game.p1Selected = selected;
-                    System.out.println("White selected " + game.p1Selected.pieceName + " at " + game.p1Selected.pos.c + ", " + game.p1Selected.pos.r);
+                    System.out.println("White selected " + game.p1Selected.pieceName + " at " + game.p1Selected.pos.c + ", " + game.p1Selected.pos.r + " | " + game.moveCount);
                   }
               }
               else { // if already selected

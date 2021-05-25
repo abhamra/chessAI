@@ -59,12 +59,19 @@ public class Piece {
 		pos.c = move.currPos.c;
 	}//end func
 
-	public boolean move(BoardLoc location) {
-		//pos.piece = null;
-		//pos = location;
+	public boolean movesContains(BoardLoc location){
 
+		for(int i = 0;i<moves.size();i++){
+			if(moves.get(i).move.equals(location)){
+				return true;
+			}
+		}//end for
+		return false;
+	}
+
+	public boolean move(BoardLoc location) {
 		if(location.piece == null) {
-			if(moves.contains(location)) {
+			if(movesContains(location)) {
 				location.piece = this;
 				pos.piece = null;
 				this.pos = location;
@@ -73,11 +80,12 @@ public class Piece {
 				System.out.println("Move - No Capture");
 				return true;
 			}
+			System.out.println("Outer If");
 			return false;
 		}
 		else if((location.piece.white && !this.white)
 			 	 || (!location.piece.white && this.white)
-				 && moves.contains(location)) { // this piece takes enemy piece
+				 && movesContains(location)) { // this piece takes enemy piece
 			location.piece = this;
 			pos.piece = null;
 			this.pos = location;
@@ -86,13 +94,10 @@ public class Piece {
 				//prevMoves.push(new Move(pieceName, "x", location, new BoardLoc(pos.r, pos.c),this.white));
 				System.out.println("Move - Capture");
 			return true;
+		} else {
+			return false;
 		}
-
-		System.out.println("Neither!");
-		return false;
-	
 	}
-
 	/*public boolean sameColor() { -- I may consider implementing this since it comes up in a lot of places
 
 	}*/

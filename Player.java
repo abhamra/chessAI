@@ -21,7 +21,7 @@ public class Player {
         pieces.add(new Pawn(6, i, true, board, null));
       }
       // set up the rest of white pieces
-      pieces.add((king = new King(7, 4, true, board, null)));
+      pieces.add((king = new King(7, 4, true, board, "K")));
       pieces.add(new Queen(7, 3, true, board, "Q"));
 
       pieces.add(new Bishop(7, 2, true, board, "B"));
@@ -44,8 +44,8 @@ public class Player {
       pieces.add(new Bishop(0, 2, false, board, "B"));
       pieces.add(new Bishop(0, 5, false, board, "B"));
 
-      pieces.add(new Knight(0, 1, false, board, "K"));
-      pieces.add(new Knight(0, 6, false, board, "K"));
+      pieces.add(new Knight(0, 1, false, board, "N"));
+      pieces.add(new Knight(0, 6, false, board, "N"));
 
       pieces.add(new Rook(0, 0, false, board, "R"));
       pieces.add(new Rook(0, 7, false, board, "R"));
