@@ -80,14 +80,15 @@ public class ChessBoard{
 
             for(int r = 0;r<game.board.length;r++){
                 for(int c = 0;c<game.board[0].length;c++){
-                    if(game.p1Selected != null) {
-                      g2.setColor(Color.RED);
-                      g2.fillRect(game.p1Selected.pos.r * 100, game.p1Selected.pos.c*100, 100, 100)
-                    }
-                    else if((r+c)%2==0){
+                    if((r+c)%2==0){
                         g2.setColor(Color.white);
                         g2.fillRect(r*100, c*100, 100, 100);
                     }//if
+
+                    if(game.p1Selected != null) {
+                      g2.setColor(Color.RED);
+                      g2.fillRect(game.p1Selected.pos.c * 100, game.p1Selected.pos.r*100, 100, 100);
+                    }
                 }//end nested
             }//end for
 
