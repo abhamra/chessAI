@@ -36,12 +36,12 @@ public class Bishop extends Piece {
     }//end constructor
 
     public void generateValidMoves(BoardLoc[][] board) {
-        moves = new ArrayList<Move>();
+        super.moves = new ArrayList<Move>();
         int[] dr = {1, -1, 1, -1};
         int[] dc = {1, 1, -1, -1};
         for(int i = 0; i < 4; i++) {
-          int nr = pos.r;
-          int nc = pos.c;
+          int nr = super.pos.r;
+          int nc = super.pos.c;
           while(nr < board.length && nr >= 0
              && nc < board[0].length && nc >= 0) {
             nr += dr[i];

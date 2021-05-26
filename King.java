@@ -44,12 +44,12 @@ public class King extends Piece {
   }
 
   public void generateValidMoves(BoardLoc[][] board) {
-    moves = new ArrayList<Move>();
+    super.moves = new ArrayList<Move>();
     int[] dr = {0, 1, 1, 1, 0, -1, -1, -1};
     int[] dc = {1, 1, 0, -1, -1, -1, 0, 1};
     for(int i = 0; i < dr.length; i++) { // iterate through possible moves
-      int nr = pos.r + dr[i];
-      int nc = pos.c + dc[i];
+      int nr = super.pos.r + dr[i];
+      int nc = super.pos.c + dc[i];
       if(nr < board.length && nr >= 0 && nc < board[0].length && nc >= 0) { // makes sure it's still within the bounds of the board
         if(white && board[nr][nc].whiteKingCanHere) { // checks if it's a safe spot (for white King)
           if(board[nr][nc].piece == null) { // checks if tile is empty or contains enemy piece that can be taken

@@ -33,12 +33,13 @@ public class Knight extends Piece {
     }//end constructor
 
     public void generateValidMoves(BoardLoc[][] board) {
-        moves = new ArrayList<Move>();
+        System.out.println("howdy from za naito");
+        super.moves = new ArrayList<Move>();
         int[] dr = {1, 1, -1, -1, 2, 2, -2, -2};
         int[] dc = {2, -2, 2, -2, 1, -1, 1, -1};
         for(int i = 0; i < 8; i++) {
-          int nr = pos.r;
-          int nc = pos.c;
+          int nr = super.pos.r;
+          int nc = super.pos.c;
             nr += dr[i];
             nc += dc[i];
             if(board[nr][nc].piece == null) {

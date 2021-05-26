@@ -14,4 +14,8 @@ public class Move {
         this.white = white;
     }//end constructor
 
+    public String toString(){
+        return move.r + " " + move.c;
+    }//end
+
 }//end

@@ -50,7 +50,7 @@ public class Piece {
 	}
 
 	public void generateValidMoves() { // OVERRIDE this method
-
+		System.out.println("howdy from the piece class");
 	}
 
 	public void undoMove(Move move){
@@ -62,6 +62,7 @@ public class Piece {
 	public boolean movesContains(BoardLoc location){
 
 		for(int i = 0;i<moves.size();i++){
+			System.out.println("MOVE");
 			if(moves.get(i).move.equals(location)){
 				return true;
 			}
@@ -95,6 +96,7 @@ public class Piece {
 				System.out.println("Move - Capture");
 			return true;
 		} else {
+			System.out.println("Neither");
 			return false;
 		}
 	}

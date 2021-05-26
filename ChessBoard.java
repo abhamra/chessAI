@@ -36,7 +36,7 @@ public class ChessBoard{
 
     public static class InnerProgram extends JPanel implements Runnable, MouseListener  {
 
-        Game game = new Game();
+        Game game;
         //BoardLoc[][] board = new BoardLoc[8][8];
         private Thread animator;
         Dimension d;
@@ -52,6 +52,7 @@ public class ChessBoard{
             addKeyListener(new TAdapter());
             setFocusable(true);
             d = getSize();
+            game = new Game();
 
             //for animating the screen - you won't need to edit
             if (animator == null) {
@@ -90,33 +91,40 @@ public class ChessBoard{
             for(Piece p : game.player1.pieces) {
               p.draw(g2);
               if(p.pieceName==null){
-                ((Pawn)p).generateValidMoves();
+                ((Pawn)p).generateValidMoves(game.board);
               } else if (p.pieceName.equals("N")){
-                ((Knight)p).generateValidMoves();
+                ((Knight)p).generateValidMoves(game.board);
+                // for(int i = 0;i<p.moves.size();i++){
+                //   System.out.println("Move: " + p.moves.get(i));
+                // }
               } else if (p.pieceName.equals("B")){
-                ((Bishop)p).generateValidMoves();
+                ((Bishop)p).generateValidMoves(game.board);
               } else if (p.pieceName.equals("R")){
-                ((Rook)p).generateValidMoves();
-              } else if (p.pieceName.equals("Q")){
-                ((Queen)p).generateValidMoves();
-              } else if (p.pieceName.equals("K")){
-                ((King)p).generateValidMoves();
+                ((Rook)p).generateValidMoves(game.board);
+              } 
+              // else if (p.pieceName.equals("Q")){
+              //   ((Queen)p).generateValidMoves(game.board);
+              // } 
+              else if (p.pieceName.equals("K")){
+                ((King)p).generateValidMoves(game.board);
               } 
             }
             for(Piece p : game.player2.pieces) {
               p.draw(g2);
               if(p.pieceName==null){
-                ((Pawn)p).generateValidMoves();
+                ((Pawn)p).generateValidMoves(game.board);
               } else if (p.pieceName.equals("N")){
-                ((Knight)p).generateValidMoves();
+                ((Knight)p).generateValidMoves(game.board);
               } else if (p.pieceName.equals("B")){
-                ((Bishop)p).generateValidMoves();
+                ((Bishop)p).generateValidMoves(game.board);
               } else if (p.pieceName.equals("R")){
-                ((Rook)p).generateValidMoves();
-              } else if (p.pieceName.equals("Q")){
-                ((Queen)p).generateValidMoves();
-              } else if (p.pieceName.equals("K")){
-                ((King)p).generateValidMoves();
+                ((Rook)p).generateValidMoves(game.board);
+              } 
+              // else if (p.pieceName.equals("Q")){
+              //   ((Queen)p).generateValidMoves(game.board);
+              // } 
+              else if (p.pieceName.equals("K")){
+                ((King)p).generateValidMoves(game.board);
               } 
             }
 
