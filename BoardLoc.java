@@ -29,6 +29,13 @@ public class BoardLoc {
 		blackKingCanHere = true;
 	}
 
+	public boolean equals(BoardLoc b){
+		if(this.r == b.r && this.c == b.c){
+			return true;
+		}
+		return false;
+	}//end
+
 	/*public void addPiece(Piece piece) { // perhaps not really necessary -- it's very easy to update piece object without this method
 		this.piece = piece;
 	}*/
