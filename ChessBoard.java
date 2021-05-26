@@ -136,6 +136,21 @@ public class ChessBoard{
               if(game.p1Selected == null) { // if white has not chosen a piece yet
                 System.out.println("WHITE'S MOVE!");
                   if(selected.white) {
+                    if(selected.pieceName==null){
+                      ((Pawn)selected).generateValidMoves(game.board);
+                    } else if (selected.pieceName.equals("N")){
+                      ((Knight)selected).generateValidMoves(game.board);
+                    } else if (selected.pieceName.equals("B")){
+                      ((Bishop)selected).generateValidMoves(game.board);
+                    } else if (selected.pieceName.equals("R")){
+                      ((Rook)selected).generateValidMoves(game.board);
+                    } 
+                    else if (selected.pieceName.equals("Q")){
+                      ((Queen)selected).generateValidMoves(game.board);
+                    } 
+                    else if (selected.pieceName.equals("K")){
+                      ((King)selected).generateValidMoves(game.board);
+                    } 
                     System.out.println("SELECTED VALID PIECE!");
                     game.p1Selected = selected;
                     System.out.println("White selected " + game.p1Selected.pieceName + " at " + game.p1Selected.pos.c + ", " + game.p1Selected.pos.r);
@@ -160,6 +175,21 @@ public class ChessBoard{
             else { // if black's move
               if(game.p2Selected == null) { // if black has not chosen a piece yet
                   if(!selected.white) {
+                    if(selected.pieceName==null){
+                      ((Pawn)selected).generateValidMoves(game.board);
+                    } else if (selected.pieceName.equals("N")){
+                      ((Knight)selected).generateValidMoves(game.board);
+                    } else if (selected.pieceName.equals("B")){
+                      ((Bishop)selected).generateValidMoves(game.board);
+                    } else if (selected.pieceName.equals("R")){
+                      ((Rook)selected).generateValidMoves(game.board);
+                    } 
+                    else if (selected.pieceName.equals("Q")){
+                      ((Queen)selected).generateValidMoves(game.board);
+                    } 
+                    else if (selected.pieceName.equals("K")){
+                      ((King)selected).generateValidMoves(game.board);
+                    } 
                     game.p2Selected = selected;
                   }
               }
