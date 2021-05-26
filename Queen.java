@@ -39,8 +39,8 @@ public class Queen extends Piece {
     for(int i = 0; i < dr.length; i++) { // iterates through the eight directions
       int nr = super.pos.r;
       int nc = super.pos.c;
-      while(nr < board.length && nr >= 0
-         && nc < board[0].length && nc >= 0) { // while edge has not been found
+      while(nr < board.length-1 && nr > 0
+         && nc < board[0].length-1 && nc > 0) { // while edge has not been found
         nr += dr[i];
         nc += dc[i];
         if(board[nr][nc].piece == null) { // if no piece in current tile

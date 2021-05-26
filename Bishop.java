@@ -36,14 +36,15 @@ public class Bishop extends Piece {
     }//end constructor
 
     public void generateValidMoves(BoardLoc[][] board) {
+      //System.out.println("bruh-shop");
         super.moves = new ArrayList<Move>();
         int[] dr = {1, -1, 1, -1};
         int[] dc = {1, 1, -1, -1};
         for(int i = 0; i < 4; i++) {
           int nr = super.pos.r;
           int nc = super.pos.c;
-          while(nr < board.length && nr >= 0
-             && nc < board[0].length && nc >= 0) {
+          while(nr < board.length-1 && nr > 0
+             && nc < board[0].length-1 && nc > 0) {
             nr += dr[i];
             nc += dc[i];
             if(board[nr][nc].piece == null) {

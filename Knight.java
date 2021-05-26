@@ -33,7 +33,7 @@ public class Knight extends Piece {
     }//end constructor
 
     public void generateValidMoves(BoardLoc[][] board) {
-        System.out.println("howdy from za naito");
+        //System.out.println("howdy from za naito");
         super.moves = new ArrayList<Move>();
         int[] dr = {1, 1, -1, -1, 2, 2, -2, -2};
         int[] dc = {2, -2, 2, -2, 1, -1, 1, -1};
@@ -42,19 +42,22 @@ public class Knight extends Piece {
           int nc = super.pos.c;
             nr += dr[i];
             nc += dc[i];
-            if(board[nr][nc].piece == null) {
-                //moves.add(board[nr][nc]);
-                super.moves.add(new Move(this.pieceName, "", board[nr][nc], board[pos.r][pos.c], this.white));
-            }
-            else if((board[nr][nc].piece.white && this.white)
-                    || !board[nr][nc].piece.white && !this.white) {
-                break;
-            }
-            else if((board[nr][nc].piece.white && !this.white)
-                    || !board[nr][nc].piece.white && this.white) {
-                //moves.add(board[nr][nc]);
-                super.moves.add(new Move(this.pieceName, "x", board[nr][nc], board[pos.r][pos.c], this.white));
-                break;
+            if(nr < board.length && nr >= 0
+            && nc < board[0].length && nc >= 0){
+                if(board[nr][nc].piece == null) {
+                    //moves.add(board[nr][nc]);
+                    super.moves.add(new Move(this.pieceName, "", board[nr][nc], board[pos.r][pos.c], this.white));
+                }
+                else if((board[nr][nc].piece.white && this.white)
+                        || !board[nr][nc].piece.white && !this.white) {
+                    break;
+                }
+                else if((board[nr][nc].piece.white && !this.white)
+                        || !board[nr][nc].piece.white && this.white) {
+                    //moves.add(board[nr][nc]);
+                    super.moves.add(new Move(this.pieceName, "x", board[nr][nc], board[pos.r][pos.c], this.white));
+                    break;
+                }
             }
         }
       }
